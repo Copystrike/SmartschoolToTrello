@@ -7,7 +7,7 @@ import java.util.Locale;
 /**
  * Created by Nick on 19/12/20 13:16.
  */
-public class EmailUtil {
+public class DateUtil {
 
     /**
      * @param dateString dutch date string in pattern "EEEE d MMMM yyyy" example: vrijdag 11 december 2020

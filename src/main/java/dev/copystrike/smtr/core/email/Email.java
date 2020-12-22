@@ -11,19 +11,27 @@ import java.time.LocalDate;
  */
 public class Email {
 
+    private final String emailId;
     private Profession profession;
     private AssignmentType assignmentType;
     private Pair<LocalDate, Integer> assignedDate;
     private LocalDate deadline;
     private String description;
     private String raw;
+    private boolean alreadyChecked;
 
-    public Email(Profession profession, AssignmentType assignmentType, Pair<LocalDate, Integer> assignedDate, LocalDate deadline, String description) {
+    public Email(String emailId, Profession profession, AssignmentType assignmentType, Pair<LocalDate, Integer> assignedDate, LocalDate deadline, String description, boolean alreadyChecked) {
+        this.emailId = emailId;
         this.profession = profession;
         this.assignmentType = assignmentType;
         this.deadline = deadline;
         this.assignedDate = assignedDate;
         this.description = description;
+        this.alreadyChecked = alreadyChecked;
+    }
+
+    public String getEmailId() {
+        return emailId;
     }
 
     public Profession getProfession() {
@@ -80,5 +88,13 @@ public class Email {
 
     public void setRaw(String raw) {
         this.raw = raw;
+    }
+
+    public boolean isAlreadyChecked() {
+        return alreadyChecked;
+    }
+
+    public void setAlreadyChecked(boolean alreadyChecked) {
+        this.alreadyChecked = alreadyChecked;
     }
 }
