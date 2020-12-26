@@ -13,7 +13,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -112,7 +111,7 @@ public class EmailHelper {
      * @param query {@link com.google.api.services.gmail.Gmail.Users.Messages.List#setQ(String)}
      * @return A hashmap of which the key the ID of the email is and the value the email object.
      */
-    public HashMap<String, Email> fetchEmails(String query) {
+    public HashMap<String, Email> fetchAssignmentEmails(String query) {
         HashMap<String, Email> emails = new HashMap<>();
         try {
             ListMessagesResponse watchResponse = Sl2To.service.users().messages().list("me").setQ(query).execute();
@@ -135,8 +134,8 @@ public class EmailHelper {
      * @param unReadOnly only fetch mails that are marked unread
      * @return A hashmap of which the key the ID of the email is and the value the email object.
      */
-    public HashMap<String, Email> fetchEmails(boolean unReadOnly) {
-        return fetchEmails("label:smartschool \"Type: Taak\" OR \"Type: toets\" " + (unReadOnly ? "is:unread" : ""));
+    public HashMap<String, Email> fetchAssignmentEmails(boolean unReadOnly) {
+        return fetchAssignmentEmails("label:smartschool \"Type: Taak\" OR \"Type: toets\" " + (unReadOnly ? "is:unread" : ""));
     }
 
     /**
@@ -146,11 +145,11 @@ public class EmailHelper {
      * @param unReadOnly     Only fetch mails that are marked unread
      * @return A hashmap of which the key the ID of the email is and the value the email object.
      */
-    public HashMap<String, Email> fetchEmails(AssignmentType assignmentType, boolean unReadOnly) {
+    public HashMap<String, Email> fetchAssignmentEmails(AssignmentType assignmentType, boolean unReadOnly) {
         if (assignmentType == AssignmentType.HOMEWORK)
-            return fetchEmails("label:smartschool Type: Taak " + (unReadOnly ? "is:unread" : ""));
+            return fetchAssignmentEmails("label:smartschool Type: Taak " + (unReadOnly ? "is:unread" : ""));
         else if (assignmentType == AssignmentType.TEST)
-            return fetchEmails("label:smartschool Type: Toets " + (unReadOnly ? "is:unread" : ""));
+            return fetchAssignmentEmails("label:smartschool Type: Toets " + (unReadOnly ? "is:unread" : ""));
         else return null; // TODO: 19/12/20 Exception because assignment isn't supported or add query field to enums;
     }
 }

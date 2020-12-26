@@ -16,20 +16,34 @@ public interface EmailEvents {
 
     /**
      * Will get called everytime it checks the inbox for emails
-     * @param emails the emails it has found based on the cycle
+     * @param email the email that does the first cycle
      * // TODO: 21/12/20 Find a solution to make it possible to check what kind of cycle this is.
      */
-    void cycleLoop(HashMap<String, Email> emails);
+    void cycleLoop(Email email);
 
     /**
-     * Will be called when a assignment deadline is overdue
-     * @param emails The emails that are overdue
+     * Will be called if email id is not listed in the database.
+     * @param email The email
      */
-    void onOverdue(Email emails);
+    void onNewEmail(Email email);
 
     /**
-     * Will be called if there is a new assignment.
-     * @param emails The emails that are new
+     * Will be called if email id is listed in the database.
+     * @param email The email
      */
-    void onNewAssignment(HashMap<String, Email> emails);
+    void onOldEmail(Email email);
+
+    /**
+     * Will be called if a new assignment has been found that is not overdue nor found in the database.
+     * @param email The email
+     */
+    void onNewAssignment(Email email);
+
+    /**
+     * Will be called if a new assignment has been found but is is overdue but is not found in the database.
+     * Aka a Teacher that assigned work that had to be done before this bot could even fetch it.
+     * Or just a teacher that assigned homework you could've only finished if you have a time machine.
+     * @param email The email
+     */
+    void onNewAssignmentButOverDue(Email email);
 }

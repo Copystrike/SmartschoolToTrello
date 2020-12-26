@@ -5,6 +5,8 @@ import dev.copystrike.smtr.core.email.enums.Profession;
 import javafx.util.Pair;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 /**
  * Created by Nick on 16/12/20 16:48.
@@ -96,5 +98,10 @@ public class Email {
 
     public void setAlreadyChecked(boolean alreadyChecked) {
         this.alreadyChecked = alreadyChecked;
+    }
+
+    public boolean isOverdue(){
+        LocalDate localDate = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return this.getDeadline().isBefore(localDate);
     }
 }

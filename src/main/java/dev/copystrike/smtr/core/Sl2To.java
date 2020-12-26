@@ -5,10 +5,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.gmail.Gmail;
-import dev.copystrike.smtr.core.email.EmailHelper;
 import dev.copystrike.smtr.core.email.EmailManager;
-import dev.copystrike.smtr.core.email.enums.AssignmentType;
-import dev.copystrike.smtr.file.EmailConfig;
 import dev.copystrike.smtr.google.Auth;
 
 import java.io.IOException;
@@ -24,8 +21,6 @@ public class Sl2To {
 
     public static Gmail service;
 
-    private EmailManager emailManager;
-
     /**
      * Here is where the magic happens
      *
@@ -38,7 +33,8 @@ public class Sl2To {
         service = new Gmail.Builder(httpTransport, JSON_FACTORY, Auth.getCredentials(httpTransport))
                 .setApplicationName(APPLICATION_NAME)
                 .build();
-        emailManager = new EmailManager();
+        EmailManager emailManager = new EmailManager();
+        emailManager.getEmailEvents().add(new BuildInEvents());
         emailManager.start();
     }
 

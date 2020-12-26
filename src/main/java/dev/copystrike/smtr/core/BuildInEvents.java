@@ -16,11 +16,11 @@ public class BuildInEvents implements EmailEvents {
 
     @Override
     public void preCycleLoop(HashMap<String, Email> emails) {
-
     }
 
     @Override
-    public void onOverdue(Email email) {
+    public void onOldEmail(Email email) {
+        if(!email.isOverdue()) return;
         ModifyMessageRequest messageRequest = new ModifyMessageRequest().setRemoveLabelIds(Collections.singletonList("UNREAD"));
         try {
             Message readEmail = Sl2To.service.users().messages().modify("me", email.getEmailId(), messageRequest).execute();
@@ -31,7 +31,20 @@ public class BuildInEvents implements EmailEvents {
     }
 
     @Override
-    public void onNewAssignment(HashMap<String, Email> emails) {
+    public void onNewEmail(Email email) {
+
+    }
+
+    @Override
+    public void cycleLoop(Email email) {
+    }
+
+    @Override
+    public void onNewAssignment(Email email) {
+    }
+
+    @Override
+    public void onNewAssignmentButOverDue(Email email) {
 
     }
 }
