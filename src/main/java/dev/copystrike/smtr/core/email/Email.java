@@ -2,11 +2,12 @@ package dev.copystrike.smtr.core.email;
 
 import dev.copystrike.smtr.core.email.enums.AssignmentType;
 import dev.copystrike.smtr.core.email.enums.Profession;
-import javafx.util.Pair;
+import dev.copystrike.smtr.utils.Pair;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by Nick on 16/12/20 16:48.

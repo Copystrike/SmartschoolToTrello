@@ -6,6 +6,7 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.gmail.Gmail;
 import dev.copystrike.smtr.core.email.EmailManager;
+import dev.copystrike.smtr.forwarding.trello.TrelloBridge;
 import dev.copystrike.smtr.google.Auth;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class Sl2To {
                 .build();
         EmailManager emailManager = new EmailManager();
         emailManager.getEmailEvents().add(new BuildInEvents());
+        emailManager.getEmailEvents().add(new TrelloBridge());
         emailManager.start();
     }
 

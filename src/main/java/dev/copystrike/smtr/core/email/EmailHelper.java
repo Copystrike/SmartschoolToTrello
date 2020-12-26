@@ -6,7 +6,7 @@ import dev.copystrike.smtr.core.Sl2To;
 import dev.copystrike.smtr.core.email.enums.AssignmentType;
 import dev.copystrike.smtr.core.email.enums.Profession;
 import dev.copystrike.smtr.utils.DateUtil;
-import javafx.util.Pair;
+import dev.copystrike.smtr.utils.Pair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;

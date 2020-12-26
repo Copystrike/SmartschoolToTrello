@@ -6,8 +6,8 @@ plugins {
 group 'dev.copystrike'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.14
+targetCompatibility = 1.14
 version = '1.0-SNAPSHJOT'
 
 repositories {
@@ -25,4 +25,5 @@ dependencies {
     implementation 'com.google.apis:google-api-services-gmail:v1-rev83-1.23.0'
     implementation "com.googlecode.json-simple:json-simple:1.1.1"
     implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'com.taskadapter:trello-java-wrapper:0.14'
 }
