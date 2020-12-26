@@ -16,4 +16,8 @@ public class TrelloConfig extends Config {
     public String getTrelloToken(){
         return ((String) getConfig().get("trello_token"));
     }
+
+    public String getTrelloBoardId() {
+        return ((String) getConfig().get("trello_board_id"));
+    }
 }

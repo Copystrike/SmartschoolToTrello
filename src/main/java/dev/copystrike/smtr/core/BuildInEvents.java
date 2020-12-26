@@ -12,6 +12,7 @@ import java.util.HashMap;
 /**
  * Created by Nick on 21/12/20 16:51.
  */
+// TODO: 26/12/20 Logger 
 public class BuildInEvents implements EmailEvents {
 
     @Override

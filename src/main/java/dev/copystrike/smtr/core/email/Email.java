@@ -7,7 +7,6 @@ import dev.copystrike.smtr.utils.Pair;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.Map;
 
 /**
  * Created by Nick on 16/12/20 16:48.
@@ -20,7 +19,6 @@ public class Email {
     private Pair<LocalDate, Integer> assignedDate;
     private LocalDate deadline;
     private String description;
-    private String raw;
     private boolean alreadyChecked;
 
     public Email(String emailId, Profession profession, AssignmentType assignmentType, Pair<LocalDate, Integer> assignedDate, LocalDate deadline, String description, boolean alreadyChecked) {
@@ -85,20 +83,20 @@ public class Email {
         this.description = description;
     }
 
-    public String getRaw() {
-        return raw;
-    }
-
-    public void setRaw(String raw) {
-        this.raw = raw;
-    }
-
     public boolean isAlreadyChecked() {
         return alreadyChecked;
     }
 
     public void setAlreadyChecked(boolean alreadyChecked) {
         this.alreadyChecked = alreadyChecked;
+    }
+
+    public String getFormatted() {
+        return "Vak: " + getProfession().name().toLowerCase() + "\n" +
+                "Type: " + getAssignmentType().name().toLowerCase() + "\n" +
+                "Opgegeven op: " + getAssignedDate().getKey() + ", Lesuur " + getAssignedDate().getValue() + "\n" +
+                "Deadline: " + getDeadline() + "\n" +
+                "Omschrijving: " + getDescription() + "\n";
     }
 
     public boolean isOverdue(){

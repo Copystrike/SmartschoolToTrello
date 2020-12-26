@@ -116,6 +116,7 @@ public class EmailHelper {
         try {
             ListMessagesResponse watchResponse = Sl2To.service.users().messages().list("me").setQ(query).execute();
             List<Message> messages = watchResponse.getMessages();
+            if (messages == null) return emails;
             for (Message uninitializedMessage : messages) {
                 Message message = Sl2To.service.users().messages().get("me", uninitializedMessage.getId()).execute();
                 byte[] bodyBytes = message.getPayload().getBody().decodeData();

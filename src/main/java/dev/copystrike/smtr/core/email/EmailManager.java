@@ -2,8 +2,6 @@ package dev.copystrike.smtr.core.email;
 
 import dev.copystrike.smtr.file.EmailConfig;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +20,9 @@ public class EmailManager {
         emailEvents = new ArrayList<>();
     }
 
+    /**
+     * This will start a scheduler that will call in the events
+     */
     public void start() {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -46,7 +47,7 @@ public class EmailManager {
                     }
                 }
             }
-        }, 0L, TimeUnit.SECONDS.toMillis(50000L));
+        }, 0L, TimeUnit.MINUTES.toMillis(30));
     }
 
     public List<EmailEvents> getEmailEvents() {
