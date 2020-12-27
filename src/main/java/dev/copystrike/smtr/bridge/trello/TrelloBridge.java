@@ -26,7 +26,7 @@ public class TrelloBridge implements EmailEvents {
     public TrelloBridge() {
         this.trelloConfig = new TrelloConfig();
         trelloApi = new TrelloImpl(trelloConfig.getTrelloKey(), trelloConfig.getTrelloToken(), new ApacheHttpClient());
-        board = trelloApi.getBoard("5fb7ae4ef9511d5839834fee");
+        board = trelloApi.getBoard(trelloConfig.getTrelloBoardId());
         tLists = board.fetchLists().toArray(new TList[0]);
     }
 

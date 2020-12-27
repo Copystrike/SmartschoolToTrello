@@ -16,7 +16,7 @@ public class Config {
     private String configName;
 
     public Config(String configName) {
-        this.configName = configName;
+        this.configName = System.getProperty("user.dir") + "\\config\\" + configName;
     }
 
     public boolean write(JSONObject jsonObject) {
@@ -33,8 +33,7 @@ public class Config {
     public JSONObject getConfig() {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader(configName)) {
-            JSONObject obj = (JSONObject) jsonParser.parse(reader);
-            return (JSONObject) obj;
+            return (JSONObject) jsonParser.parse(reader);
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }

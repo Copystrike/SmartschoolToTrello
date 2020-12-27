@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 public class EmailConfig extends Config {
 
     public EmailConfig() {
-        super("src\\main\\resources\\email.json");
+        super("email.json");
     }
 
     public boolean addEmailID(String emailID) {

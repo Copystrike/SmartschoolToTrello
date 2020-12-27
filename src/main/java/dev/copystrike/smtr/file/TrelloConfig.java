@@ -6,7 +6,7 @@ package dev.copystrike.smtr.file;
 public class TrelloConfig extends Config {
 
     public TrelloConfig() {
-        super("src\\main\\resources\\trellocredentials.json");
+        super("trellocredentials.json");
     }
 
     public String getTrelloKey(){
