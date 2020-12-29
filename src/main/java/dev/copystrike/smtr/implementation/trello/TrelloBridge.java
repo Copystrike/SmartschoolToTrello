@@ -1,6 +1,5 @@
-package dev.copystrike.smtr.bridge.trello;
+package dev.copystrike.smtr.implementation.trello;
 
-import com.julienvey.trello.Trello;
 import com.julienvey.trello.domain.Board;
 import com.julienvey.trello.domain.Card;
 import com.julienvey.trello.domain.TList;

@@ -1,4 +1,4 @@
-package dev.copystrike.smtr.bridge.trello;
+package dev.copystrike.smtr.implementation.trello;
 
 import com.julienvey.trello.domain.Card;
 import dev.copystrike.smtr.core.email.Email;

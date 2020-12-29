@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class Config {
     private String configName;
 
     public Config(String configName) {
-        this.configName = System.getProperty("user.dir") + "\\config\\" + configName;
+        this.configName = System.getProperty("user.dir") + File.separator +"config" + File.separator + configName;
     }
 
     public boolean write(JSONObject jsonObject) {
